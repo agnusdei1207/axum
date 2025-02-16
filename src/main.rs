@@ -5,7 +5,7 @@ use axum::{
 
 #[tokio::main]
 async fn main() {
-    // build our application with a single route
+    // build our application with a single route 
     let app = Router::new().route("/", get(|| async { "Hello, World!" }));
 
     // run our app with hyper, listening globally on port 3000
