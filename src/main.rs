@@ -22,5 +22,5 @@ async fn home() -> Response {
 }
 
 #[derive(Template)]
-#[template(path = "index.html")]
+#[template(path = "pages/home.html")]
 struct home_template {}
