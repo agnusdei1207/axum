@@ -1,5 +1,6 @@
+use askama::Template;
 use axum::{
-    response::{IntoResponse, Response},
+    response::{Html, IntoResponse, Response},
     routing::get,
     Router,
 };
@@ -10,10 +11,16 @@ async fn main() {
         .await
         .unwrap();
 
-    let app = Router::new().route("/", get(handler));
+    let app = Router::new().route("/", get(home));
     axum::serve(listener, app).await.unwrap();
 }
 
-async fn handler() -> Response {
-    "Axum Server".into_response()
+async fn home() -> Response {
+    let html_string = home_template {}.render().unwrap();
+
+    Html(html_string).into_response()
 }
+
+#[derive(Template)]
+#[template(path = "index.html")]
+struct home_template {}
