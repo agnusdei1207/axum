@@ -17,8 +17,8 @@ async fn main() {
     let app = Router::new()
         .route("/", get(home))
         .route("/create", get(create))
-        .route("not-found", get(not_found))
-        .route("server-error", get(server_error))
+        .route("/not-found", get(not_found))
+        .route("/server-error", get(server_error))
         .route("/sign-up", get(sign_up))
         .route("/todo", get(todo))
         .nest_service("/static", server_dir);
