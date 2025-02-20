@@ -47,36 +47,7 @@ async fn server_error() -> Response {
     Html(html_string).into_response()
 }
 
-async fn sign_up() -> Response {
-    let html_string = sign_up_template {}.render().unwrap();
-    Html(html_string).into_response()
-}
-
 async fn todo() -> Response {
     let html_string = todo_template {}.render().unwrap();
     Html(html_string).into_response()
 }
-
-#[derive(Template)]
-#[template(path = "pages/home.html")]
-struct home_template {}
-
-#[derive(Template)]
-#[template(path = "pages/create.html")]
-struct create_template {}
-
-#[derive(Template)]
-#[template(path = "pages/not-found.html")]
-struct not_found_template {}
-
-#[derive(Template)]
-#[template(path = "pages/server-error.html")]
-struct server_error_template {}
-
-#[derive(Template)]
-#[template(path = "pages/sign-up.html")]
-struct sign_up_template {}
-
-#[derive(Template)]
-#[template(path = "pages/todo.html")]
-struct todo_template {}
