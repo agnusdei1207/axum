@@ -27,3 +27,7 @@ pub struct LogInTemplate {}
 #[derive(Template)]
 #[template(path = "pages/todo.html")]
 pub struct TodoTemplate {}
+
+#[derive(Template)]
+#[template(path = "pages/create-todo.html")]
+pub struct CreateTodoTemplate {}

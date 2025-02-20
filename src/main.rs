@@ -46,8 +46,3 @@ async fn server_error() -> Response {
     let html_string = server_error_template {}.render().unwrap();
     Html(html_string).into_response()
 }
-
-async fn todo() -> Response {
-    let html_string = todo_template {}.render().unwrap();
-    Html(html_string).into_response()
-}
