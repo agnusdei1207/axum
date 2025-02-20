@@ -1,10 +1,4 @@
-use askama::Template;
-use axum::{
-    response::{Html, IntoResponse, Response},
-    routing::get,
-    Router,
-};
-use tower_http::services::ServeDir;
+use axum_rest::routes;
 
 #[tokio::main]
 async fn main() {
@@ -12,16 +6,7 @@ async fn main() {
         .await
         .unwrap();
 
-    let server_dir = ServeDir::new("static");
-
-    let app = Router::new()
-        .route("/", get(home))
-        .route("/create", get(create))
-        .route("/not-found", get(not_found))
-        .route("/server-error", get(server_error))
-        .route("/sign-up", get(sign_up))
-        .route("/todo", get(todo))
-        .nest_service("/static", server_dir);
+    let app = routes::router();
 
     axum::serve(listener, app).await.unwrap();
 }
