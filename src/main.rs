@@ -25,24 +25,3 @@ async fn main() {
 
     axum::serve(listener, app).await.unwrap();
 }
-
-async fn home() -> Response {
-    let html_string = home_template {}.render().unwrap();
-
-    Html(html_string).into_response()
-}
-
-async fn create() -> Response {
-    let html_string = create_template {}.render().unwrap();
-    Html(html_string).into_response()
-}
-
-async fn not_found() -> Response {
-    let html_string = not_found_template {}.render().unwrap();
-    Html(html_string).into_response()
-}
-
-async fn server_error() -> Response {
-    let html_string = server_error_template {}.render().unwrap();
-    Html(html_string).into_response()
-}
