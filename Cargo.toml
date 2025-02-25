@@ -24,3 +24,5 @@ lazy_static = "1.4.0"
 serde_json = "1.0.107"
 image = "0.24.7"
 fast_image_resize = "2.7.3"
+
+
